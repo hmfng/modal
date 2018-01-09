@@ -107,7 +107,7 @@
 		var content = document.createElement('div')
 		content.className = 'main-content'
 		content.innerHTML = '<div>'+
-						'<input type="text" placeholder="请输入物品价值" id="window_weight"/>'+
+						'<input type="text" placeholder="请输入物品价值" id="val"/>'+
 						'<span style="position: absolute; right: 10px;">'+this.default.unit+'</span>'+
 					'</div>'
 		content_wrapper.append(content)
@@ -125,10 +125,11 @@
 		this.container.remove()
 	};
 	O.prototype.sure = function() {
-		this.close();
+		var val = document.querySelector('#val').value
 		if (typeof this.default.sureCallback === 'function') {
-			this.default.sureCallback()
+			this.default.sureCallback(val)
 		}
+		this.close();
 	};
 	function extend( o1, o2 ) {
 		for ( var key in o2 ) {
