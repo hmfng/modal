@@ -9,19 +9,32 @@
 	</style>
 </head>
 <body>
-	<button class="btn">show modal</button>
+	<button class="btn1">show modal</button>
+	<button class="btn2">show TimeSelect</button>
 </body>
 <script src="js/modal-1.0.0.js"></script>
+<script src="js/TimeSelect-1.0.0.js"></script>
 <script>
-	document.querySelector('.btn').onclick = function() {
+	var log = console.log
+	var query = document.querySelector.bind(document)
+
+	query('.btn1').onclick = function() {
 		var m = new Modal()
 		m.init({
 			title: 'title',
 			unite: 'unite',
-			sureCallback: function(data) {
-				console.log(data)
+			sureCallback: function( data ) {
+				log(data)
 			}
 		})
+	}
+	query('.btn2').onclick = function() {
+		new TimeModal({
+			title: '我是标题',
+			callback: function( data ) {
+				log(data)
+			}
+		}) 
 	}
 	
 </script>
