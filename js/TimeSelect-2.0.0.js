@@ -1,6 +1,5 @@
 !function(root){
-	var winHeight = window.screen.height
-
+	
 	function TimeModal( config ) {
 		this.container = null
 		this.default = {
@@ -23,6 +22,7 @@
 			
 		},
 		renderUI: function() {
+			var winHeight = window.screen.height
 			var document = root.document
 
 			this.container = this.getElem('div', 'modal')
