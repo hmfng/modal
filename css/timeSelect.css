@@ -1,58 +1,78 @@
-.fr {
-	float: right;
+
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
 }
-.tab-right {
-	line-height: 3rem;
-	width: 70%;
-	text-align: center;
+.modal-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.modal-main {
+	position: absolute;
+	width: 100%;
+	height: 230px;
 	background-color: #fff;
+	font-size: 14px;
+	-webkit-transition: top 0.2s linear;
+	-o-transition: top 0.2s linear;
+	transition: top 0.2s linear;
 }
-.tab-right li {
+.main-header {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 15px;
+	height: 45px;
+	line-height: 45px;
+	border-top: 1px solid #e4dce4;
 	border-bottom: 1px solid #e4dce4;
 }
-.tab-right li.current {
+.main-header h1.title {
+	font-size: 16px;
+	font-weight: normal;
+}
+.main-body {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.main-body .tab-right {
+	width: 70%;
+	height: 165px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #fff;
+	overflow: auto;
+}
+.main-body .tab-right li {
+	border-bottom: 1px solid #e4dce4;
+}
+.main-body .tab-right li.current {
 	color: #278bf8;
 }
 
-.tab-left {
-	line-height: 3rem;
+.main-body .tab-left {
+	line-height: 40px;
 	width: 30%;
 	text-align: center;
 }
-.tab-left li {
+.main-body .tab-left li {
 	border-bottom: 1px solid #f2f6f8;
 }
-.tab-left li.current {
+.main-body .tab-left li.current {
 	background-color: #fff;
 	border-color: #e4dce4;
-}
-.modal-main {
-	position:absolute;
-	bottom:0;
-	width:100%;
-	height:auto;
-	font-size:1rem;
-	background:#fff;
-	padding-bottom:1rem;
-}
-.main-header {
-	height:3rem;
-	line-height: 3rem;
-	border-bottom:1px solid #eaeaea;
-}
-.main-header span:nth-of-type(1){
-	position:absolute;
-	left:2%;
-}
-.main-header span:nth-of-type(2) {
-	position: absolute;
-	left: 20%;
-	right: 20%;
-	font-size: 1.2rem;
-	text-align: center;
-}
-.main-header span:nth-of-type(3) {
-	position:absolute;
-	right:2%;
-	color:#278cf8;
 }

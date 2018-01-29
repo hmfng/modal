@@ -3,7 +3,8 @@
 	function TimeModal( config ) {
 		this.container = null
 		this.default = {
-			title: '标题'
+			title: '标题',
+			rightColor: '#000'
 		}
 
 		this.extend( this.default, config )
@@ -13,7 +14,7 @@
 	TimeModal.prototype = {
 		appendStyle: function() {
 			this.style = this.getElem('style', 'style')
-			var str = '.fr{float: right;}.tab-right{line-height: 3rem;width: 70%;height: 12.5rem;text-align: center;background-color: #fff;overflow: auto;}.tab-right li{border-bottom: 1px solid #e4dce4;}.tab-right li.current{color: #278bf8;}.tab-left{line-height: 3rem;width: 30%;text-align: center;}.tab-left li{border-bottom: 1px solid #f2f6f8;}.tab-left li.current{background-color: #fff;border-color: #e4dce4;}.modal-mask{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.2);}.modal-main{position:absolute;bottom:0;width:100%;height:40%;font-size:1rem;background:#fff;padding-bottom:1rem;-webkit-transition: top 0.2s linear;-o-transition: top 0.2s linear;transition: top 0.2s linear;}.main-header{position: relative;height:3rem;line-height: 3rem;border-bottom:1px solid #eaeaea;}.main-header span:nth-of-type(1){position:absolute;left:2%;}.main-header span:nth-of-type(2) {position: absolute;left: 20%;right: 20%;font-size: 1.2rem;text-align: center;}.main-header span:nth-of-type(3){position:absolute;right:2%;color:#278cf8;}.main-body{overflow: auto;}.modal{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}.btn{width: 200px;height: 100px;line-height: 100px;}'
+			var str = '.modal {position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 9;}.modal-mask {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.2);}.modal-main {position: absolute;width: 100%;height: 230px;background-color: #fff;font-size: 14px;-webkit-transition: top 0.2s linear;-o-transition: top 0.2s linear;transition: top 0.2s linear;}.main-header {display: -webkit-flex;display: -moz-flex;display: -ms-flex;display: -o-flex;display: flex;justify-content: space-between;padding: 0 15px;height: 45px;line-height: 45px;border-top: 1px solid #e4dce4;border-bottom: 1px solid #e4dce4;}.main-header h1.title {font-size: 16px;font-weight: normal;}.main-body {display: -webkit-flex;display: -moz-flex;display: -ms-flex;display: -o-flex;display: flex;}.main-body .tab-right {width: 70%;height: 165px;line-height: 40px;text-align: center;background-color: #fff;overflow: auto;}.main-body .tab-right li {border-bottom: 1px solid #e4dce4;}.main-body .tab-right li.current {color: #278bf8;}.main-body .tab-left {line-height: 40px;width: 30%;text-align: center;}.main-body .tab-left li {border-bottom: 1px solid #f2f6f8;}.main-body .tab-left li.current {background-color: #fff;border-color: #e4dce4;}'
 			this.style.innerHTML = str
 			document.head.appendChild(this.style)
 		},
@@ -44,24 +45,26 @@
 			close.onclick = this.close.bind(this)
 			header.appendChild(close)
 
-			var title = this.getElem('span', 'title')
+			var title = this.getElem('h1', 'title')
 			title.innerHTML = this.default.title
 			header.appendChild(title)
 
 			var sure = this.getElem('span', 'sure')
 			sure.innerHTML = '确定'
+			sure.style.color = this.default.rightColor
 			sure.onclick = this.sure.bind( this )
 			header.appendChild(sure)
 
 			var body = this.getElem('div', 'main-body')
 			main.appendChild(body)
 
-			this.right = this.getElem('ul', 'tab-right fr')
-			body.appendChild(this.right)
+			this.right = this.getElem('ul', 'tab-right')
 
 			this.left = this.getElem('ul', 'tab-left')
 			this.renderLeft( this.left )
 			body.appendChild( this.left )
+
+			body.appendChild(this.right)
 
 			main.style.top = winHeight + 'px'
 
@@ -207,4 +210,6 @@
 	}
 
 	root.TimeModal = TimeModal
+
+	return TimeModal
 }(window)

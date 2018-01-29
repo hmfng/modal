@@ -35,6 +35,7 @@ border-bottom: 1px solid #e4dce4;
 }
 .main-header h1 {
 font-size: 16px;
+font-weight: normal;
 }
 .content-wrapper {
 padding: 15px;
@@ -45,4 +46,14 @@ padding: 10px;
 border: 1px solid #e4dce4;
 border-radius: 5px;
 font-size: 15px;
+}
+.main-content input {
+	width: 90%;
+	border: none;
+	outline: none;
+}
+.main-content span {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }

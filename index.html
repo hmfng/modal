@@ -6,24 +6,28 @@
 	<title>example</title>
 	<style>
 		*{margin: 0; padding: 0;}
+		html, body {
+			width: 100%;
+			height: 100%;
+		}
 	</style>
+	<!-- <link rel="stylesheet" href="css/timeSelect.css"> -->
 </head>
 <body>
 	<button class="btn1">show modal</button>
 	<button class="btn2">show TimeSelect</button>
 </body>
 <script src="js/modal-1.0.0.js"></script>
-<script src="js/TimeSelect-1.0.0.js"></script>
+<script src="js/TimeSelect-2.0.0.js"></script>
 <script>
 	var log = console.log
 	var query = document.querySelector.bind(document)
 
 	query('.btn1').onclick = function() {
-		var m = new Modal()
-		m.init({
-			title: 'title',
-			unite: 'unite',
-			sureCallback: function( data ) {
+		new Modal({
+			title: '我是标题',
+			rightColor: '#278bf8',
+			callback: function( data ) {
 				log(data)
 			}
 		})
@@ -31,6 +35,7 @@
 	query('.btn2').onclick = function() {
 		new TimeModal({
 			title: '我是标题',
+			rightColor: '#278bf8',
 			callback: function( data ) {
 				log(data)
 			}
